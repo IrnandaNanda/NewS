@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function show($slug) {
-        $news = News::where('slug', $slug)->first();
-        $newests = News::orderBy('created_at', 'desc')->get()->take(4);
+        $news = News::where('slug', $slug)->firstOrFail();
+        $newests = News::orderBy('created_at', 'desc')->take(4)->get();
         return view('pages.news.show', compact('news', 'newests'));
     }
 
