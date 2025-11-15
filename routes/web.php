@@ -13,6 +13,9 @@ Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 // Author profile route
 Route::get('/author/{username}', [App\Http\Controllers\AuthorController::class, 'show'])->name('author.show');
 
+// News category route (less specific, placed after news detail)
+Route::get('{slug}', [NewsController::class, 'category'])->name('news.category');
+
 // Serve private files under /file/* to avoid conflict with content routes
 Route::prefix('file')->group(function () {
     Route::get('/avatar/{filename}', function ($filename) {
