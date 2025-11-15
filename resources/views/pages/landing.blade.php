@@ -11,7 +11,7 @@
                         <div class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden"
                             style="background-image: url('{{ route('thumbnail.private', ['filename' => $banner->news->thumbnail]) }}')">
                             <div
-                                class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
+                                class="absolute inset-x-0 bottom-0 h-full bg-linear-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
                             </div>
                             <div class="relative z-10 mb-3" style="padding-left: 10px;">
                                 <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
@@ -120,7 +120,7 @@
         <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <!-- Author 1 -->
             @foreach ($authors as $author)
-                <a href="author.html">
+                <a href="{{ route('author.show', $author->username) }}">
                     <div
                         class="flex flex-col items-center border border-slate-200 px-4 py-8 rounded-2xl hover:border-primary hover:cursor-pointer">
                         <img src="{{ route('author.private', ['filename' => $author->avatar]) }}" alt=""
