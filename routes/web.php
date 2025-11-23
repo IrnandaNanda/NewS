@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Response;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
+// New route for all news
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
 // News detail route (specific)
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 

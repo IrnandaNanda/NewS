@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    public function index() {
+        $news = News::paginate(4);
+        return view('pages.news.index', compact('news'));
+    }
+
     public function show($slug) {
         $news = News::where('slug', $slug)->firstOrFail();
         $newests = News::orderBy('created_at', 'desc')->take(4)->get();
@@ -15,7 +20,7 @@ class NewsController extends Controller
     }
 
     public function category($slug) {
-        $category = NewsCategory::where('slug', $slug)->first();
+        $category = NewsCategory::where('slug', $slug)->firstOr();
         return view('pages.news.category', compact('category'));
     }
 }
