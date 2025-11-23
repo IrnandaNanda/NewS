@@ -12,7 +12,9 @@
       <!-- Berita Utama -->
       <div class="lg:w-8/12">
         <img src="{{ route('news.private', ['filename' => $news->thumbnail]) }}" alt="MotoGP" class="w-full max-h-96 rounded-xl object-cover">
-        {!! $news->content !!}
+        <div class="mt-6 text-justify leading-relaxed text-base lg:text-lg">
+          {!! $news->content !!}
+        </div>
       </div>
       <!-- Berita Terbaru -->
       <div class="lg:w-4/12 flex flex-col gap-10">
@@ -30,7 +32,7 @@
                   <img src="{{ route('news.private', ['filename' => $new->thumbnail]) }}" alt="" class="max-h-36 rounded-xl object-cover">
                   <div class="">
                     <p class="font-bold text-sm lg:text-base">{{ $new->title }}</p>
-                    <p class="text-slate-400 mt-2 text-sm lg:text-xs">{{ \Str::limit($new->content, 60) }}</p>
+                    <p class="text-slate-400 mt-2 text-sm lg:text-xs">{!! \Str::limit($new->content, 60) !!}</p>
                   </div>
                 </div>
               </div>

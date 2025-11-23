@@ -5,8 +5,8 @@
                     <!-- Logo -->
                     <a href="{{ route('landing') }}">
                         <div class="flex items-center gap-2">
-                            <img src="{{ asset('assets/img/Logo.png') }}" alt="Logo" class="w-8 lg:w-10">
-                            <p class="text-lg lg:text-xl font-bold">Stikma News</p>
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="w-8 lg:w-10">
+                            <p class="text-lg lg:text-xl font-bold text-secondary">STIKMA NEWS</p>
                         </div>
                     </a>
                     <button class="lg:hidden text-primary text-2xl focus:outline-none" id="menu-toggle">
@@ -21,7 +21,7 @@
                         class="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
                         <li>
                             <a href="{{ route('landing') }}"
-                                class="{{ request()->is('/') ? 'text-primary' : '' }} hover:text-gray-600">Beranda</a>
+                                class="{{ request()->is('/') ? 'text-primary' : '' }} hover:text-primary">Beranda</a>
                         </li>
                         @foreach (\App\Models\NewsCategory::all() as $category)
                             <li>

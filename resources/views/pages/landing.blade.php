@@ -15,13 +15,14 @@
                             </div>
                             <div class="relative z-10 mb-3" style="padding-left: 10px;">
                                 <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
-                                    {{ $banner->news->newsCategory->title }}</div>
-                                <p class="text-3xl font-semibold text-white mt-1">{{ $banner->news->title }}</p>
+                                    {{ $banner->news->newsCategory->title }}
+                                </div>
+                                {{-- <p class="text-3xl font-semibold text-white mt-1">{{ $banner->news->title }}</p>
                                 <div class="flex items-center gap-1 mt-1">
                                     <img src="{{ route('avatar.private', ['filename' => $banner->news->author->avatar]) }}"
                                         alt="" class="w-5 h-5 rounded-full">
                                     <p class="text-white text-xl">{{ $banner->news->author->name }}</p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </a>
@@ -92,12 +93,13 @@
                 <a href="{{ route('news.show', $new->slug) }}"
                     class="relative col-span-5 flex flex-col h-fit md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
                     <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm">
-                        {{ $new->newsCategory->title }}</div>
+                        {{ $new->newsCategory->title }}
+                    </div>
                     <img src="{{ route('news.private', ['filename' => $new->thumbnail]) }}" alt="berita2"
                         class="rounded-xl md:max-h-48" style="width: 250px; object-fit: cover;">
                     <div class="mt-2 md:mt-0">
                         <p class="font-semibold text-lg">{{ $new->title }}</p>
-                        <p class="text-slate-400 mt-3 text-sm font-normal">{{ $new->content }}</p>
+                        <p class="text-slate-400 mt-3 text-sm font-normal">{!! \Str::limit($news[0]->content, 100) !!}</p>
                     </div>
                 </a>
             @endforeach
@@ -110,11 +112,10 @@
     <div class="flex flex-col px-4 md:px-10 lg:px-14 mt-10">
         <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
             <div class="font-bold text-2xl text-center md:text-left">
-                <p>Kenali Author</p>
-                <p>Terbaik Dari Kami</p>
+                <p>Author Kami</p>
             </div>
             <a href="register.html" class="bg-primary px-5 py-2 rounded-full text-white font-semibold mt-4 md:mt-0 h-fit">
-                Gabung Menjadi Author
+                Daftar Author
             </a>
         </div>
         <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
