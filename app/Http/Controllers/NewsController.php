@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index() {
-        $news = News::paginate(4);
+    public function index(Request $request) {
+        $search = $request->input('search');
+
+        $news = News::when($search, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                         ->orWhere('content', 'like', '%' . $search . '%');
+        })->orderBy('created_at', 'desc')->paginate(4)->withQueryString();
         return view('pages.news.index', compact('news'));
     }
 
